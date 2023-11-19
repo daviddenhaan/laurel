@@ -1,0 +1,35 @@
+{
+    "name": "dulkoss/laurel",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "ext-swoole": "*",
+        "illuminate/contracts": "^v10.32",
+        "illuminate/support": "^v10.32",
+        "illuminate/console": "^v10.32",
+        "illuminate/http": "^v10.32"
+    },
+    "require-dev": {
+        "illuminate/database": "^v10.32"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Laurel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David",
+            "email": "75451291+dulkoss@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laurel\\LaurelServiceProvider"
+            ]
+        }
+    }
+}
