@@ -47,14 +47,17 @@ class ServeCommand extends Command
 
         $server = new Server($host, $port);
 
-        $server->set(['worker_num' => $this->config->get('laurel.workers')]);
+        $server->set([
+            'worker_num' => $this->config->get('laurel.workers'),
+            'max_request' => $this->config->get('laurel.worker.max_requests', 1000),
+        ]);
 
         return $server;
     }
 
     protected function registerRequestCallback(Server $server, Kernel $kernel): void
     {
-        $server->on('request', static function (SwooleRequest $request, PendingResponse $pending) use ($kernel) {
+        $server->on('request', static function (SwooleRequest $request, PendingResponse $pending) use ($kernel, $server) {
             /** trash all output, we don't need it */
             ob_start(fn () => null);
 
