@@ -57,7 +57,7 @@ class ServeCommand extends Command
 
     protected function registerRequestCallback(Server $server, Kernel $kernel): void
     {
-        $server->on('request', static function (SwooleRequest $request, PendingResponse $pending) use ($kernel, $server) {
+        $server->on('request', static function (SwooleRequest $request, PendingResponse $pending) use ($kernel) {
             /** trash all output, we don't need it */
             ob_start(fn () => null);
 
