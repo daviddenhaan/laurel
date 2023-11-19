@@ -41,7 +41,7 @@ class ServeCommand extends Command
         return ! $server->start();
     }
 
-    protected function makeServer(string $address): ?Server
+    protected function makeServer(string $address): Server
     {
         [$host, $port] = $this->parseAddress($address);
 
