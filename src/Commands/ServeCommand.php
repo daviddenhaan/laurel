@@ -84,7 +84,7 @@ class ServeCommand extends Command
         } catch (\Throwable) {
             $this->components->error("Address {$address} does not have a port specified.");
 
-            die(1);
+            exit(1);
         }
 
         return [$host, (int) $port];

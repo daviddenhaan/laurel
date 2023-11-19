@@ -20,7 +20,7 @@ final class LaurelServiceProvider extends ServiceProvider
             $this->commands(ServeCommand::class);
         }
 
-        $this->mergeConfigFrom($config = __DIR__.'/../config/laurel.php', 'laurel',);
+        $this->mergeConfigFrom($config = __DIR__.'/../config/laurel.php', 'laurel');
 
         $this->publishes([
             $config => config_path('laurel.php'),
